@@ -2,7 +2,7 @@
 # 08 - CONFIGURAR O NTP;
 # 14 - INICIALIZAÇÃO AUTOMÁTICA DO CHROMIUM;
 # 26 - CONFIGURAR EXTENSÕES;
-# 57 - ALTERAR O NOME DE USUÁRIO E SENHA
+# 57 - ALTERAR O USERNAME E SENHA
 # 62 - CONFIGURAR IP FIXO.
 
 # LISTA PARA CONFIGURAR O NTP ------------------------------------------------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ sudo timedatectl set-timezone America/Sao_Paulo # ajusta o horário. # funciona 
 # LISTA PARA CONFIGURAR A INICIALIZAÇÃO AUTOMÁTICA DO CHROMIUM ---------------------------------------------------------------------------------------
 
 sudo apt-get install nano                                           # instala o nano que serve para edição de arquivos por linha de comando.
-sudo nano /home/[nome de usuário]/.config/lxsession/LXDE/autostart #comando para configurar a inicialização.
+sudo nano /home/[username]/.config/lxsession/LXDE/autostart #comando para configurar a inicialização.
 
   #caso não funcione: abra o file manager -> cntrl+h -> .config -> lxsession -> LXDE -> open autostart with leafpad
 
@@ -26,8 +26,8 @@ sudo nano /home/[nome de usuário]/.config/lxsession/LXDE/autostart #comando par
 # LISTA PARA CONFIGURAR EXTENSÕES (VIA LINHA DE COMANDO) ---------------------------------------------------------------------------------------------
 
 install_chromium_extension () {
-    if [[ -f  </home/[nome de usuário]/.config/chromium/Default/Extesions> ]]; then
-        preference_dir_path="/home/linaro/.config/chromium/Default/Extesions"
+    if [[ -f  </home/[username]/.config/chromium/Default/Extesions> ]]; then
+        preference_dir_path="/home/username/.config/chromium/Default/Extesions"
         pref_file_path="$preferences_dir_path/$1.json"
         upd_url="https://clients2.google.com/service/update2/crx"
         mkdir -p "$preferences_dir_path"
@@ -36,8 +36,8 @@ install_chromium_extension () {
         echo "}" >> "$pref_file_path"
         echo Added \""$pref_file_path"\" ["$2"]
     else
-       mkdir [/home/[nome de usuário]/.config/chromium/Default/Extesions]
-       preference_dir_path="/home/linaro/.config/chromium/Default/Extesions"
+       mkdir [/home/[username]/.config/chromium/Default/Extesions]
+       preference_dir_path="/home/username/.config/chromium/Default/Extesions"
         pref_file_path="$preferences_dir_path/$1.json"
         upd_url="https://clients2.google.com/service/update2/crx"
         mkdir -p "$preferences_dir_path"
@@ -51,13 +51,13 @@ install_chrome_extension pjgjpabbgnnoohijnillgbckikfkbjed, "Tab Rotate"   # Conf
                                                                           # Funciona como o 'Chocolatey'.                                                                           
                                                                           
   # O próximo passo é configurar/editar a extensão. O diretório é: 
-  # /home/[nome de usuário]/.config/chromium/Default/Extensions/pjgjpabbgnneohijnillgbckikfgbjed/0.4.1_0/crc
+  # /home/[username]/.config/chromium/Default/Extensions/pjgjpabbgnneohijnillgbckikfgbjed/0.4.1_0/crc
   # sudo nano settings.js (abre a aba para configurar, logo em seguida, deve-se colocar as URL's).
                                                                           
-# PASSO-A-PASSO PARA CONFIGURAR O NOME DE USUÁRIO E SENHA --------------------------------------------------------------------------------------------
+# PASSO-A-PASSO PARA CONFIGURAR O USERNAME E SENHA --------------------------------------------------------------------------------------------
 
 # Preferences ---> Tinker Board Configuration ---> System ---> Hostname: (nome de usuario da tv)
-# Preferences ---> Users and Groups ---> Username: (nome de usuario da tv) ---> Change Password
+# Preferences ---> Users and Groups ---> Username: (username da tv) ---> Change Password
 
 # PASSO-A-PASSO PARA CONFIGURAR O IP FIXO -----------------------------------------------------------------------------------------------------------
 
